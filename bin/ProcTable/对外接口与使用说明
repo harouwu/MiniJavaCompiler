@@ -1,0 +1,15 @@
+String name = "...";
+Proc temproc = ProcTable.SearchProc(name);
+
+
+
+tempproc.*
+		 GetReg(int)    给定一个temp号，返回寄存器号或者"OverFlow"
+		 GetMaxPara()   返回最大参数
+		 GetParaNum()   返回参数数目
+		 GetMaxStack()  返回最多同时溢出的变量数目
+		 GetLab(String) 给定一个标签名，返回它对应的全局标签名
+		 TakenRegs()    返回一个Vector<String>，占用的寄存器(不包括a0~v0)
+		 StackRecorder  一个Vector<int>，提供给代码生成部分追踪栈状态
+		 StackPara      一个Vector<String>，记录所有因为参数而占用的寄存器
+		 ......

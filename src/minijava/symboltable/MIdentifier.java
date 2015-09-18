@@ -1,0 +1,1 @@
+package minijava.symboltable ;/** * * @author wuling * */public class MIdentifier extends MyVar{        public MIdentifier(String v_name){	Name = v_name ;    }    public String GetName(){	return Name ;    }}

@@ -1,0 +1,39 @@
+一个辅助空白类：EmptyClass,因为每次继承都要改写各种返回值和参数表，这里直接提供一个空白类供改写。
+
+
+ProcTable->
+		   LabCounter    全局标签计数器
+		   procs(Proc)-> 过程表，含有核心算法——活跃变量分析
+		   		        Name                过程名
+		   		 		ParaNum             参数数量
+		   		 		MaxPara             最大参数
+		   		 		Flags               代码块分界点记录表
+		   		 		IntroCounter        指令计数器 
+		   		 		labels(MyLabel)->   标签记录表
+		   		 						 Name    标签名
+		   		 						 Pos     标签位置
+		   		 		StackRecorder       栈使用记录
+		   		 		StackPara           参数占用寄存器记录
+		   		 		regplan(RegPlan)->  寄存器分配方案，含有核心算法——图染色寄存器分配
+		   		 						  RegList  <寄存器号,寄存器名>对应表
+		   		 						  Matrix   干扰图
+		   		 						  temps    <temp号 , 寄存器号>记录表
+										  Alloc    <temp号 , 寄存器名>记录表
+		   		 		block(Block)->      代码块表
+									  Start            代码块起点
+									  End              代码块终点
+									  Next             下一个代码块编号（顺序执行）
+									  JumpDes          下一个代码块编号（跳转）
+								      isLast           是否是最后一个代码块
+								      intros<Intro>->  代码块指令列表
+								                     Des     在该指令中被赋值者
+													 Src     在该指令中需要用到的变量
+													 Pos     该指令位置
+													 Live    该指令处的活跃变量记录 
+		   		 		cyclegraph(Graph)-> 控制流图，含有核心算法——控制流图循环分析
+										   Matrix         控制流图
+										   Size           图的尺寸
+	                                       cyclerecorder  循环记录表
+										   trace          循环路径记录表		  
+	
+	

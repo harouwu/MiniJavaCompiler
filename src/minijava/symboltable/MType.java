@@ -1,0 +1,1 @@
+package minijava.symboltable ;/** *  * @author wuling * */public  class MType {	public String Name;	public int DefPos;		public String GetName()	{		return Name;	}}
